@@ -1,29 +1,27 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Main {
-    public static void main(String args[]){
+    public static void main(String[] args){
+        int length = 10;
+        int x;
+
+        ArrayList <Integer> secondArray = new ArrayList<Integer>(length);
+        ArrayList <Integer> Permutation = new ArrayList<Integer>(length); 
+        
+        for(int i = 1; i<= 10; i++){
+            secondArray.add(i);
+        }
 
         Random rd = new Random();
-        final int length = 10;
-        int[] array = new int[length];
-        int companion = 0;
-        for(int i = 0; i < array.length; i++){
-            array[i] = rd.nextInt(100);
-            companion++;
+
+        for(int i = 0 ; i < 10 ; i++){
+            x = rd.nextInt(10-i);
+            Permutation.add(secondArray.get(x));
+            secondArray.remove(x);
         }
-        System.out.println("The array : ");
-        for(int i = 0; i < array.length; i++){
-            System.out.print(array[i]+ " ");
-        }
-        Operations ar = new Operations();
-        ar.setArray(array);
-        System.out.println("\nElement on even index ");
-        ar.evenIndex();
-        System.out.println("\neven element ");
-        ar.evenElement();
-        System.out.println("\nReverse order");
-        ar.Reverse();
-        System.out.println("\nFirst and last element ");
-        ar.firstLast();
+
+        System.out.println(Permutation);
+        
     }
 }
